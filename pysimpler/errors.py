@@ -5,7 +5,7 @@ import traceback
 class error:
 
     @staticmethod
-    def catch(raise_exception=False):
+    def catch(raise_exception=True):
         
         def decorator(func):
             def wrapper(*args, **kwargs):
