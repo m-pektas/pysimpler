@@ -33,14 +33,12 @@ def memory_pytorch(device = "mps"):
 
 if __name__ == '__main__':
 
-
-
     print("Process 1")
     print("Process 2")
-    # result = zero_devision(x = 10)
     result = memory_pytorch()
-    # result = memory(10000)
-    # result = counter(10000)
+    result = memory(10000)
+    result = counter(10000)
+    result = zero_devision(x = 10)
     print("Process 4")
 
     
