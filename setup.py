@@ -6,7 +6,7 @@ with open('pysimpler/requirements.txt') as f:
 
 setup(
     name='pysimpler',
-    version='0.0.1',
+    version='0.0.2',
     author='Muhammed Pektas',
     description='pysimpler',
     long_description='This package simplifies the fundamental software engineering practices such as exception handling, logging etc.',
