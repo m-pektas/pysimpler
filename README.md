@@ -26,7 +26,6 @@ if __name__ == '__main__':
 ------------------------------
 Process 1
 Process 2
-Process 3
 func : zero devision => 10/0
 2023-08-20T03:11:50.412347+0300 | ERROR |  "/Users/mp/Desktop/Github/simpler/app.py", line 8, in zero_devision
     return x/0
@@ -59,7 +58,6 @@ if __name__ == '__main__':
 ------------------------------
 Process 1
 Process 2
-Process 3
 2023-08-20T03:13:23.631413+0300 | INFO | Function : counter | Duration : 0.0003120899200439453 sec
 Process 4
 ```
@@ -94,7 +92,6 @@ if __name__ == '__main__':
 ------------------------------
 Process 1
 Process 2
-Process 3
 (351, 10, 1)
 (0, 0, 0)
 Process 4
