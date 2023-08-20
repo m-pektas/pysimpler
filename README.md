@@ -1,8 +1,16 @@
 # pysimpler
 This package simplifies the fundamental software engineering practices such as exception handling, logging etc.
 
+![version](https://img.shields.io/badge/version-0.0.1-blue)
 
 
+## Installation
+
+```
+pip install pysimpler
+```
+
+## Examples
 
 
 ### Try-Catch 
