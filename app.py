@@ -22,7 +22,8 @@ def memory(count):
 
 if __name__ == '__main__':
 
+    result = memory(10000)
     result = zero_devision(x = 10)
-    result = counter(1000)
-    result = memory(1000)
+    result = counter(10000)
     print( "other processes" )
+    
