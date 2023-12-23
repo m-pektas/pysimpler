@@ -1,6 +1,7 @@
 
 from loguru import logger
 import traceback
+import os
 
 class error:
 
@@ -9,13 +10,18 @@ class error:
         
         def decorator(func):
             def wrapper(*args, **kwargs):
-                try:
-                    return func(*args, **kwargs)
-                except Exception as e:
-                    message =  "".join(traceback.format_exc().split("File")[2:])
-                    logger.error(message) 
 
-                    if raise_exception: raise e
+                if os.getenv("PYSIMPLER") == "1":
+                    try:
+                        return func(*args, **kwargs)
+                    except Exception as e:
+                        message =  "".join(traceback.format_exc().split("File")[2:]).replace("\n","")
+                        logger.error(message) 
+
+                        if raise_exception: raise e
+                else:
+                    return func(*args, **kwargs)
+
                 
             return wrapper
         

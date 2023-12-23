@@ -6,10 +6,10 @@ with open('pysimpler/requirements.txt') as f:
 
 setup(
     name='pysimpler',
-    version='0.0.2',
+    version='0.0.3',
     author='Muhammed Pektas',
     description='pysimpler',
-    long_description='This package simplifies the fundamental software engineering practices such as exception handling, logging etc.',
+    long_description='This package simplifies the fundamental software engineering practices such as logging, exception handling etc.',
     url='https://github.com/m-pektas/pysimpler',
     keywords='software engineering, exception, cache, timer, python, decorators',
     python_requires='>=3.7, <4',
