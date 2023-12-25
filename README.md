@@ -4,12 +4,23 @@
 
 This package simplifies the fundamental software engineering practices such as exception handling, logging etc. 
 
-- **Please set PYSIMPLER as 1 to activate pysimpler.**
 
 ## Installation
 
 ```
 pip install pysimpler
+```
+
+## Activate/Deactivate
+
+You have to set PYSIMPLER environment variable as 1 to activate pysimpler. If you want to deactivate it, you should set as 0.
+
+```
+#activate
+export PYSIMPLER=1
+
+#deactivate
+export PYSIMPLER=0
 ```
 
 ## Features
