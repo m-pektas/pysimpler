@@ -51,7 +51,7 @@ if __name__ == '__main__':
 # output
 # ------------------------------
 # Process 1
-# 2023-08-20T03:13:23.631413+0300 | INFO | Function : counter | Duration : 0.0003120899200439453 sec
+# 2023-12-25T11:55:38.474173+0300 | INFO | File: app.py | Function : counter | Duration : 0.0005151670000032027 sec
 # Process 3
 ```
 
