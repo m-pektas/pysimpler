@@ -22,6 +22,17 @@ export PYSIMPLER=1
 #deactivate
 export PYSIMPLER=0
 ```
+##  Report
+
+You can add following command at end of your code for reporting.
+
+```python
+pysimpler.reporter.report()
+```
+
+
+<img src="assets/function_average_time-min.png" width="600"  />  <img src="assets/function_frequency-min.png" width="600"  />
+
 
 ## Features
 
@@ -47,6 +58,8 @@ if __name__ == '__main__':
     print("Process 1")
     result = counter(10)
     print("Process 3")
+
+pysimpler.reporter.report()
 
 # output
 # ------------------------------

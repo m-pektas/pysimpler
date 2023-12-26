@@ -8,7 +8,13 @@ def zero_devision(x):
     return x/0
 
 @pysimpler.timer.actual()
-def counter(count):
+def counterShort(count):
+    x = 1
+    for i in range(count):
+        y = x*i
+
+@pysimpler.timer.actual()
+def counterLong(count):
     x = 1
     for i in range(count):
         y = x*i
@@ -33,10 +39,13 @@ if __name__ == '__main__':
     print("Process 2")
     result = memory_pytorch(device="cuda:0")
     result = memory(10000)
-    result = counter(10000)
+    result = counterShort(100)
+    result = counterLong(1000)
     result = zero_devision(x = 10)
     print("Process 4")
 
+
+    pysimpler.reporter.report()
     
 
 

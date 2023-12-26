@@ -6,6 +6,7 @@ logger.add(sys.stderr, format="{time} | {level} | {message}")
 import time
 import os
 import inspect
+from pysimpler.report import reporter
 
 class timer:
 
@@ -29,6 +30,10 @@ class timer:
                     result = func(*args, **kwargs)
                     e = time.perf_counter()
                     logger.info(f"File: {function_file_path} | Function : {function_name} | Duration : {e-s} sec")
+                    
+                    key = function_file_path.split(".")[0]+"_"+function_name
+                    val = e-s
+                    reporter.add(key, val)
                 else:
                     result = func(*args, **kwargs)
                 return result
