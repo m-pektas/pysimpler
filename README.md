@@ -24,7 +24,7 @@ export PYSIMPLER=0
 ```
 ##  Report
 
-You can add following command at end of your code for reporting.
+You can add the following command at the end of your code for reporting.
 
 ```python
 pysimpler.reporter.report()
