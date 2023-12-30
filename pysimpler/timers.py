@@ -1,8 +1,5 @@
 
 from loguru import logger
-import sys
-logger.remove(0)
-logger.add(sys.stderr, format="{time} | {level} | {message}")
 import time
 import os
 import inspect
