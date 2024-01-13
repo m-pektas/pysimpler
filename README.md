@@ -1,6 +1,6 @@
 # pysimpler
 
-![version](https://img.shields.io/badge/version-0.0.4-blue)
+![version](https://img.shields.io/badge/version-0.0.5-blue)
 
 This package simplifies the fundamental software engineering practices such as exception handling, logging etc. 
 
@@ -70,7 +70,7 @@ pysimpler.reporter.report()
 
 
 
-### 2. Cache Cleaner (In Progress)
+### 2. Cache Cleaner
 
 
 ```python
@@ -132,7 +132,7 @@ if __name__ == '__main__':
 ```
 
 
-### 3. Exception Handler (In Progress)
+### 3. Exception Handler
 
 
 ```python

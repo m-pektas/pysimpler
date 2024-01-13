@@ -9,6 +9,7 @@ class timer:
 
     def ___get_func_info__(func):
         file_path = inspect.getsourcefile(func) # get filepaht
+        file_path = "/".join(file_path.split("/")[-2:])
         name = func.__name__ # get func name
         return file_path, name
 
@@ -28,7 +29,7 @@ class timer:
                     e = time.perf_counter()
                     logger.info(f"File: {function_file_path} | Function : {function_name} | Duration : {e-s} sec")
                     
-                    key = function_file_path.split(".")[0]+"_"+function_name
+                    key = function_file_path.split("/")[-1].split(".")[0]+"_"+function_name
                     val = e-s
                     reporter.add(key, val)
                 else:
