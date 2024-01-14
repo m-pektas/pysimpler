@@ -3,7 +3,7 @@ on:
     branches: 
       - main
     types: [closed]
-    
+
 jobs:
   pypi-publish:
     name: Upload release to PyPI
@@ -14,7 +14,6 @@ jobs:
     permissions:
       id-token: write  
     steps:
-
 
     - name: Publish package distributions to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
