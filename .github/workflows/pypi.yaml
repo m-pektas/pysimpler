@@ -1,5 +1,8 @@
 name: Publish Python 🐍 distribution 📦 to PyPI and TestPyPI
 
+permissions:
+  id-token: write
+  
 on: push
 
 jobs:
