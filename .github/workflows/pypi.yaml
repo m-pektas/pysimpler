@@ -18,3 +18,8 @@ jobs:
 
     - name: Publish package distributions to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        user: mpektas
+        password: ${{ secrets.PYPI_TOKEN }}
+        # If you want to upload to TestPyPI, uncomment the following line
+        repository_url: https://test.pypi.org/legacy/
