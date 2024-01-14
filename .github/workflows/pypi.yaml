@@ -4,6 +4,7 @@ on:
       - main
     types: [closed]
 
+
 jobs:
   pypi-publish:
     name: Upload release to PyPI
