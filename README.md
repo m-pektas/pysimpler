@@ -1,6 +1,6 @@
 # pysimpler
 
-![version](https://img.shields.io/badge/version-0.0.5-blue)
+![version](https://img.shields.io/badge/version-0.0.6-blue)
 
 This package simplifies the fundamental software engineering practices such as exception handling, logging etc. 
 
