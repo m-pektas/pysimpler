@@ -1,0 +1,27 @@
+# Reference : https://pre-commit.com/
+# Before to run following commands:
+# pip install pre-commit
+# pre-commit install
+
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+    -   id: check-yaml
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+-   repo: https://github.com/psf/black
+    rev: 22.10.0
+    hooks:
+    -   id: black
+
+-   repo: local
+    hooks:
+    -   id: pylint
+        args:
+            - --fail-under=5
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]
+        require_serial: true
