@@ -1,12 +1,13 @@
-from setuptools import setup, find_packages
+"""Setup script for the package."""
 
+from setuptools import setup, find_packages
 
 with open("pysimpler/requirements.txt") as f:
     required = f.read().splitlines()
 
 setup(
     name="pysimpler",
-    version="0.0.6",
+    version="0.0.7",
     author="Muhammed Pektas",
     description="pysimpler",
     long_description="This package simplifies the fundamental software engineering practices such as logging, exception handling etc.",

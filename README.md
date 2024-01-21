@@ -1,8 +1,8 @@
 # pysimpler
 
-![version](https://img.shields.io/badge/version-0.0.6-blue)
+![version](https://img.shields.io/badge/version-0.0.7-blue)
 
-This package simplifies the fundamental software engineering practices such as exception handling, logging etc. 
+This package simplifies the fundamental software engineering practices such as bottleneck analysis, exception handling, logging etc.
 
 
 ## Installation
@@ -84,12 +84,12 @@ def memory(count):
         mem.append("data")
 
 if __name__ == '__main__':
-    # print(gc.get_count()) lines are only for printing of the memory state. 
+    # print(gc.get_count()) lines are only for printing of the memory state.
     # You can remove it.
 
     print("Process 1")
     print("Process 2")
-    print(gc.get_count()) 
+    print(gc.get_count())
     result = memory(1000)
     print(gc.get_count())
     print("Process 4")
