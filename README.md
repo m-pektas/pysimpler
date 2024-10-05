@@ -11,7 +11,7 @@ This package simplifies the fundamental software engineering practices such as b
 pip install pysimpler
 ```
 
-## Activate/Deactivate
+## Environment Variables
 
 You have to set PYSIMPLER environment variable as 1 to activate pysimpler. If you want to deactivate it, you should set as 0.
 
@@ -22,6 +22,7 @@ export PYSIMPLER=1
 #deactivate
 export PYSIMPLER=0
 ```
+
 ##  Report
 
 You can add the following command at the end of your code for reporting.
@@ -30,6 +31,13 @@ You can add the following command at the end of your code for reporting.
 pysimpler.reporter.report()
 ```
 
+If you want to set specific values for reporting metrics, you can use following lines. Default values are TIME_UNITS.SECONDS and 5 digits.
+
+```python
+import pysimpler
+pysimpler.reporter.set_time_unit(pysimpler.TIME_UNITS.MILLISECONDS)
+pysimpler.reporter.set_digits(10)
+```
 
 <img src="assets/function_average_time-min.png" width="600"  />  <img src="assets/function_frequency-min.png" width="600"  />
 
@@ -47,7 +55,7 @@ This feature aims to log duration of the execution time of method. We use **time
 ```python
 import pysimpler
 
-@pysimpler.timer.actual()
+@pysimpler.timer.time()
 def counter(count):
     x = 1
     for i in range(count):
@@ -131,33 +139,4 @@ if __name__ == '__main__':
 # Process 4
 ```
 
-
-### 3. Exception Handler
-
-
-```python
-import pysimpler
-
-@pysimpler.error.catch(raise_exception=False)
-def zero_devision(x):
-    print(f"func : zero devision => {x}/0")
-    return x/0
-
-if __name__ == '__main__':
-    print("Process 1")
-    print("Process 2")
-    result = zero_devision(x = 10)
-    print("Process 4")
-```
-```
-# output
-------------------------------
-Process 1
-Process 2
-func : zero devision => 10/0
-2023-08-20T03:11:50.412347+0300 | ERROR |  "/Users/mp/Desktop/Github/simpler/app.py", line 8, in zero_devision
-    return x/0
-ZeroDivisionError: division by zero
-
-Process 4
 ```

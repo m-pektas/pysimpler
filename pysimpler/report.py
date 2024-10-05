@@ -1,11 +1,13 @@
 """Report script"""
 
-from collections import defaultdict
+
 import os
+from collections import defaultdict
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
+from .enums import TIME_UNITS
 
 
 class Reporter:
@@ -13,9 +15,10 @@ class Reporter:
 
     report_cache = defaultdict()
     root = "pysimpler_report"
+    time_unit = TIME_UNITS.SECONDS
 
     @classmethod
-    def add(cls, key, val):
+    def add(cls, key, val, time_unit=TIME_UNITS.SECONDS):
         """Add a new data to the report cache"""
         if cls.report_cache.get(key) is None:
             cls.report_cache[key] = [val]
@@ -66,5 +69,17 @@ class Reporter:
         ax = sns.barplot(x="functions", y="average_time", data=df)
         ax.bar_label(ax.containers[0], fmt="%f")
         plt.xticks(rotation=45)
-        plt.title("Functions vs Average Time (sec.)")
+        plt.title(f"Functions vs Average Time ({cls.time_unit.value})")
         plt.savefig(f"{cls.root}/function_average_time.png", bbox_inches="tight")
+
+    @classmethod
+    def set_time_unit(cls, time_unit):
+        """Set time unit"""
+        cls.time_unit = time_unit
+        return cls.time_unit
+
+    @classmethod
+    def set_digits(cls, digits):
+        """Set digits"""
+        cls.digits = digits
+        return cls.digits

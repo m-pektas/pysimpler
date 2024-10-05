@@ -1,5 +1,4 @@
-from .errors import Error
-from .timers import Timer
-from .caches import Cache
-from .constants import MLFrameworks
-from .report import Reporter
+from .timers import Timer as timer
+from .caches import Cache as cache
+from .enums import MLFrameworks, TIME_UNITS
+from .report import Reporter as reporter

@@ -1,7 +1,5 @@
-from enum import Enum
+from .enums import TIME_UNITS
 
-
-class MLFrameworks(Enum):
-    TENSORFLOW = "tensorflow"
-    PYTORCH = "pytorch"
-    DEFAULT = "default"
+# Default values
+TIME_UNIT = TIME_UNITS.SECONDS
+DIGITS = 5

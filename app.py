@@ -3,17 +3,19 @@ PYSIMPLER example usage script.
 """
 
 import torch
-from loguru import logger
 import pysimpler
+import time
+
+# If you want to set specific values for timer as globally, you can use following lines. Default values are TIME_UNITS.SECONDS and 5 digits.
+pysimpler.timer.set_time_unit(pysimpler.TIME_UNITS.SECONDS)
+pysimpler.timer.set_digits(10)
+
+# If you want to set specific values for reporter as globally, you can use following lines. Default values are TIME_UNITS.SECONDS and 5 digits.
+pysimpler.reporter.set_time_unit(pysimpler.TIME_UNITS.MILLISECONDS)
+pysimpler.reporter.set_digits(10)
 
 
-@pysimpler.error.catch(raise_exception=False)
-def zero_devision(x):
-    """Zero devision error example function"""
-    return x / 0
-
-
-@pysimpler.timer.actual()
+@pysimpler.timer.time()
 def counter_short(count):
     """Counter example function"""
     x = 1
@@ -21,13 +23,28 @@ def counter_short(count):
         x * i
 
 
-@pysimpler.timer.actual()
-def counter_long(count):
-    """CounterLong example function"""
-    logger.error("counterLong")
+@pysimpler.timer.time(
+    time_unit=pysimpler.TIME_UNITS.MILLISECONDS
+)  # If you want you can set different time unit or digit for each function.
+def counter_shortest(count):
+    """Counter example function"""
     x = 1
     for i in range(count):
         x * i
+
+
+@pysimpler.timer.time()
+def counter_long(count):
+    """CounterLong example function"""
+    x = 1
+    for i in range(count):
+        x * i
+
+
+@pysimpler.timer.time()
+def sleepy(count):
+    """CounterLong example function"""
+    time.sleep(count)
 
 
 @pysimpler.cache.clear()
@@ -49,10 +66,11 @@ def memory_pytorch(device="mps"):
 if __name__ == "__main__":
     print("Process 1")
     print("Process 2")
-    result = memory_pytorch(device="cuda:0")
-    result = memory(10000)
-    result = counter_short(100)
-    result = counter_long(1000)
-    result = zero_devision(x=10)
-    print("Process 4")
+    memory_pytorch(device="cuda:0")
+    memory(10000)
+    counter_shortest(100)
+    counter_short(100000)
+    counter_long(1000000)
+    sleepy(1)
+    print("Process N")
     pysimpler.reporter.report()
