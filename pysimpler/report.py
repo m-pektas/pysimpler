@@ -6,7 +6,7 @@ from collections import defaultdict
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-import seaborn as sns
+import plotly.express as px
 from .enums import TIME_UNITS
 
 
@@ -47,12 +47,9 @@ class Reporter:
 
         d = {"functions": xvals, "frequency": yvals}
         df = pd.DataFrame.from_dict(d)
-        plt.figure()
-        ax = sns.barplot(x="functions", y="frequency", data=df)
-        ax.bar_label(ax.containers[0])
-        plt.xticks(rotation=45)
-        plt.title("Functions vs Frequency")
-        plt.savefig(f"{cls.root}/function_frequency.png", bbox_inches="tight")
+
+        fig = px.bar(df, x="functions", y="frequency", title="Frequency")
+        fig.write_html(f"{cls.root}/function_frequency.html")
 
     @classmethod
     def average_time_report(cls):
@@ -65,12 +62,13 @@ class Reporter:
 
         d = {"functions": xvals, "average_time": yvals}
         df = pd.DataFrame.from_dict(d)
-        plt.figure()
-        ax = sns.barplot(x="functions", y="average_time", data=df)
-        ax.bar_label(ax.containers[0], fmt="%f")
-        plt.xticks(rotation=45)
-        plt.title(f"Functions vs Average Time ({cls.time_unit.value})")
-        plt.savefig(f"{cls.root}/function_average_time.png", bbox_inches="tight")
+        fig = px.bar(
+            df,
+            x="functions",
+            y="average_time",
+            title=f"Average Time ({cls.time_unit.value})",
+        )
+        fig.write_html(f"{cls.root}/function_average_time.html")
 
     @classmethod
     def set_time_unit(cls, time_unit):
